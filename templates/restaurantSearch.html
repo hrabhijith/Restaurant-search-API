@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Search</title>
+</head>
+
+<body>
+
+    <form action="" method="POST">
+        <label for="">Enter a place to search restaurants
+            <input type="text" name="place" required>
+
+        </label>
+        <br>
+        <label for="">Enter your preffered meal type (eg: Burger, Pizza, South Indian)
+            <input type="text" name="mealType" required>
+        </label>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+
+
+    {% if venues %}
+    {% for result in venues %}
+    <ul>
+        <li><strong>{{result.name}}</strong><br>
+            <ul>
+                {% for k in result.address %}
+                <li>{{k}}</li>
+                {% endfor %}
+                <li>{{result.distance}} meters</li>
+            </ul>
+        </li>
+
+    </ul>
+
+
+
+
+
+    {% endfor %}
+    {% endif %}
+
+
+</body>
+
+</html>
